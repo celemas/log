@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Duon\Log\Tests;
+namespace Celemas\Log\Tests;
 
+use Celemas\Log\Formatter\PlainFormatter;
+use Celemas\Log\Formatter\TextFormatter;
 use DateTime;
-use Duon\Log\Formatter\PlainFormatter;
-use Duon\Log\Formatter\TextFormatter;
 use ErrorException;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\TestCase;

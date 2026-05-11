@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Duon\Log;
+namespace Celemas\Log;
 
 interface Formatter
 {

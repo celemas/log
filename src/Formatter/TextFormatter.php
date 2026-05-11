@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Duon\Log\Formatter;
+namespace Celemas\Log\Formatter;
 
-use Duon\Log\Formatter;
+use Celemas\Log\Formatter;
 use Override;
 
 /** @api */
