@@ -1,17 +1,16 @@
-# Duon Log
+# Celemas Log
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6c5f675f8d914a88993f339a653ad6aa)](https://app.codacy.com/gh/duoncode/log/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/6c5f675f8d914a88993f339a653ad6aa)](https://app.codacy.com/gh/duoncode/log/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
-[![Psalm level](https://shepherd.dev/github/duoncode/log/level.svg?)](https://duon.sh/log)
-[![Psalm coverage](https://shepherd.dev/github/duoncode/log/coverage.svg?)](https://shepherd.dev/github/duoncode/log)
+[![CI](https://github.com/celemas/log/actions/workflows/ci.yml/badge.svg)](https://github.com/celemas/log/actions)
+[![Psalm level](https://shepherd.dev/github/celemas/log/level.svg?)](https://celemas.dev/log)
+[![Psalm coverage](https://shepherd.dev/github/celemas/log/coverage.svg?)](https://shepherd.dev/github/celemas/log)
 
 A simple PSR-3 logger using PHP's `error_log` function.
 
 ## Installation
 
 ```bash
-composer require duon/log
+composer require celemas/log
 ```
 
 ## Usage
@@ -19,7 +18,7 @@ composer require duon/log
 Create a logger without arguments to write to PHP's default SAPI error logger.
 
 ```php
-use Duon\Log\Logger;
+use Celemas\Log\Logger;
 
 $logger = new Logger();
 $logger->info('Application started');
