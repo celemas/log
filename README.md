@@ -31,8 +31,7 @@ See the [documentation](docs/index.md) for file logging, level filtering, and fo
 
 ## Testing
 
-During testing, PHP's `error_log` ini setting is set to a temporary file. To print the output to
-the console, prepend a special env variable to the PHPUnit cli command, as follows:
+During testing, PHP's `error_log` ini setting is set to a temporary file. To print the output to the console, prepend a special env variable to the PHPUnit cli command, as follows:
 
 ```bash
 ECHO_LOG=1 phpunit
@@ -46,8 +45,7 @@ Tests require:
 - Writable system temp directory (for test log file isolation)
 - PHP `error_reporting` must be modifiable
 
-These are standard in development environments but may fail in restricted
-PHP configurations where `ini_set` is disabled via `disable_functions`.
+These are standard in development environments but may fail in restricted PHP configurations where `ini_set` is disabled via `disable_functions`.
 
 ## License
 
