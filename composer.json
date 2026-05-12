@@ -1,29 +1,29 @@
 {
-	"name": "duon/log",
+	"name": "celemas/log",
 	"description": "A simple PSR-3 Logger",
 	"type": "library",
 	"license": "MIT",
 	"authors": [
 		{
 			"name": "Ernst",
-			"email": "ernst@duon.sh"
+			"email": "ernst@celemas.dev"
 		}
 	],
-	"homepage": "https://duon.sh/log",
+	"homepage": "https://celemas.dev/log",
 	"keywords": [
-		"duon",
+		"celemas",
 		"log",
 		"logging",
 		"psr-3"
 	],
 	"autoload": {
 		"psr-4": {
-			"Duon\\Log\\": "src/"
+			"Celemas\\Log\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Duon\\Log\\Tests\\": "tests/"
+			"Celemas\\Log\\Tests\\": "tests/"
 		}
 	},
 	"require": {
@@ -31,7 +31,7 @@
 		"psr/log": "^3.0"
 	},
 	"require-dev": {
-		"duon/dev": "^3.0"
+		"celemas/dev": "^3.0"
 	},
 	"scripts": {
 		"test": [
