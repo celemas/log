@@ -1,9 +1,12 @@
 # Celemas Log
 
+<!-- prettier-ignore-start -->
+[![ci](https://github.com/celemas/log/actions/workflows/ci.yml/badge.svg)](https://github.com/celemas/log/actions)
+[![codecov](https://codecov.io/github/celemas/log/graph/badge.svg?token=2EN4S2LRFU)](https://codecov.io/github/celemas/log)
+[![psalm coverage](https://shepherd.dev/github/celemas/log/coverage.svg?)](https://shepherd.dev/github/celemas/log)
+[![psalm level](https://shepherd.dev/github/celemas/log/level.svg?)](https://shepherd.dev/github/celemas/log)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
-[![CI](https://github.com/celemas/log/actions/workflows/ci.yml/badge.svg)](https://github.com/celemas/log/actions)
-[![Psalm level](https://shepherd.dev/github/celemas/log/level.svg?)](https://celemas.dev/log)
-[![Psalm coverage](https://shepherd.dev/github/celemas/log/coverage.svg?)](https://shepherd.dev/github/celemas/log)
+<!-- prettier-ignore-end -->
 
 A simple PSR-3 logger using PHP's `error_log` function.
 
