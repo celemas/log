@@ -10,6 +10,6 @@
 
 ## ⚠️ This repository is a mirror!
 
-**Development has moved to <https://codeberg.org/celemas/sire>.**
+**Development has moved to <https://codeberg.org/celemas/log>.**
 
 A simple PSR-3 logger using PHP's `error_log` function.
