@@ -1,12 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/celemas/log/compare/0.2.0...HEAD)
+## [Unreleased](https://codeberg.org/celemas/log/compare/0.3.0...HEAD)
+
+No notable changes since the last release.
+
+## [0.3.0](https://codeberg.org/celemas/log/src/tag/0.3.0) (2026-06-10)
 
 ### Breaking Changes
 
 - Rename package metadata, root namespace, repository URLs, homepage, and contact email to Celemas.
 
-## [0.2.0](https://github.com/celemas/log/releases/tag/0.2.0) (2026-04-30)
+## [0.2.0](https://codeberg.org/celemas/log/src/tag/0.2.0) (2026-04-30)
 
 ### Breaking
 
@@ -28,7 +32,7 @@
 - Removed null bytes after formatting so formatter-provided values cannot write null bytes to logs.
 - Appended a newline after each explicit file log record.
 
-## [0.1.0](https://github.com/celemas/log/releases/tag/0.1.0) (2026-01-31)
+## [0.1.0](https://codeberg.org/celemas/log/src/tag/0.1.0) (2026-01-31)
 
 Initial release.
 
