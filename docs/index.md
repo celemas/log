@@ -2,16 +2,16 @@
 title: Introduction
 ---
 
-# Celemas Log
+# Celema Log
 
-Celemas Log is a small PSR-3 logger for simple applications and libraries.
+Celema Log is a small PSR-3 logger for simple applications and libraries.
 
 It intentionally covers the simple case: PSR-3 messages written through PHP's `error_log` with lightweight text formatting. If you need handlers, channels, processors, log rotation, structured JSON logs, buffering, remote transports, or complex filtering, use [Monolog](https://seldaek.github.io/monolog/) or another full logging library instead.
 
 ## Installation
 
 ```bash
-composer require celemas/log
+composer require celema/log
 ```
 
 ## Default SAPI logging
@@ -19,7 +19,7 @@ composer require celemas/log
 Create a logger without arguments to write to PHP's default SAPI error logger. This path writes each record as one physical line, which is friendlier to syslog, journald, containers, and platform log collectors. Line breaks in formatted messages are replaced with spaces on this path.
 
 ```php
-use Celemas\Log\Logger;
+use Celema\Log\Logger;
 use Psr\Log\LogLevel;
 
 $logger = new Logger();
@@ -32,7 +32,7 @@ $logger->log(LogLevel::WARNING, 'Disk space is low');
 Pass a file path to append log records to that file. File logging preserves multiline formatter output, including appended context and exception tracebacks.
 
 ```php
-use Celemas\Log\Logger;
+use Celema\Log\Logger;
 
 $logger = new Logger(__DIR__ . '/var/app.log');
 $logger->error('Import failed');
@@ -41,7 +41,7 @@ $logger->error('Import failed');
 For CLI debugging where you want multiline output on stderr, pass `php://stderr` explicitly.
 
 ```php
-use Celemas\Log\Logger;
+use Celema\Log\Logger;
 
 $logger = new Logger('php://stderr');
 ```
@@ -51,7 +51,7 @@ $logger = new Logger('php://stderr');
 Set `level` to ignore records below a PSR-3 level.
 
 ```php
-use Celemas\Log\Logger;
+use Celema\Log\Logger;
 use Psr\Log\LogLevel;
 
 $logger = new Logger(level: LogLevel::ERROR);
@@ -71,8 +71,8 @@ A formatter receives the log message and PSR-3 context and returns the text that
 `TextFormatter` is the default. It interpolates matching `{key}` placeholders, appends unused context values, and includes exception tracebacks by default.
 
 ```php
-use Celemas\Log\Formatter\TextFormatter;
-use Celemas\Log\Logger;
+use Celema\Log\Formatter\TextFormatter;
+use Celema\Log\Logger;
 
 $logger = new Logger(formatter: new TextFormatter());
 
@@ -95,8 +95,8 @@ $logger = new Logger(formatter: new TextFormatter(includeTraceback: false));
 `PlainFormatter` returns the message unchanged and ignores context. Use it when you want full control over the message text.
 
 ```php
-use Celemas\Log\Formatter\PlainFormatter;
-use Celemas\Log\Logger;
+use Celema\Log\Formatter\PlainFormatter;
+use Celema\Log\Logger;
 
 $logger = new Logger(formatter: new PlainFormatter());
 $logger->info('User {id} logged in', ['id' => 42]);
@@ -105,7 +105,7 @@ $logger->info('User {id} logged in', ['id' => 42]);
 
 ## Production logging and rotation
 
-Celemas Log can be used in production when your logging requirements stay simple. Keep the application responsible for emitting PSR-3 records, and let the runtime or operating system own storage, retention, rotation, and shipping.
+Celema Log can be used in production when your logging requirements stay simple. Keep the application responsible for emitting PSR-3 records, and let the runtime or operating system own storage, retention, rotation, and shipping.
 
 Recommended patterns:
 
@@ -116,7 +116,7 @@ Recommended patterns:
 For host-managed file logs, write to the path that your rotation tool manages:
 
 ```php
-use Celemas\Log\Logger;
+use Celema\Log\Logger;
 
 $logger = new Logger('/var/log/my-app/app.log');
 ```
