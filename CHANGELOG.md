@@ -1,16 +1,22 @@
 # Changelog
 
-## [Unreleased](https://codeberg.org/celemas/log/compare/0.3.0...HEAD)
+## [Unreleased](https://codeberg.org/celema/log/compare/0.3.0...HEAD)
 
-No notable changes since the last release.
+### Changed
 
-## [0.3.0](https://codeberg.org/celemas/log/src/tag/0.3.0) (2026-06-10)
+- Renamed the Composer package to `celema/log` and moved PHP classes from `Celemas\Log` to `Celema\Log`.
+
+### Removed
+
+- Removed the previous Composer package name and PHP namespace; consumers must update their dependency and imports.
+
+## [0.3.0](https://codeberg.org/celema/log/src/tag/0.3.0) (2026-06-10)
 
 ### Breaking Changes
 
 - Rename package metadata, root namespace, repository URLs, homepage, and contact email to Celemas.
 
-## [0.2.0](https://codeberg.org/celemas/log/src/tag/0.2.0) (2026-04-30)
+## [0.2.0](https://codeberg.org/celema/log/src/tag/0.2.0) (2026-04-30)
 
 ### Breaking
 
@@ -32,7 +38,7 @@ No notable changes since the last release.
 - Removed null bytes after formatting so formatter-provided values cannot write null bytes to logs.
 - Appended a newline after each explicit file log record.
 
-## [0.1.0](https://codeberg.org/celemas/log/src/tag/0.1.0) (2026-01-31)
+## [0.1.0](https://codeberg.org/celema/log/src/tag/0.1.0) (2026-01-31)
 
 Initial release.
 
