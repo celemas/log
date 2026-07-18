@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Log\Tests;
+namespace Celema\Log\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 

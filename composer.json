@@ -1,29 +1,29 @@
 {
-	"name": "celemas/log",
+	"name": "celema/log",
 	"description": "A simple PSR-3 Logger",
 	"type": "library",
 	"license": "MIT",
 	"authors": [
 		{
 			"name": "Ernst",
-			"email": "ernst@celemas.dev"
+			"email": "ernst@celema.dev"
 		}
 	],
-	"homepage": "https://celemas.dev/log",
+	"homepage": "https://celema.dev/log",
 	"keywords": [
-		"celemas",
+		"celema",
 		"log",
 		"logging",
 		"psr-3"
 	],
 	"autoload": {
 		"psr-4": {
-			"Celemas\\Log\\": "src/"
+			"Celema\\Log\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Celemas\\Log\\Tests\\": "tests/"
+			"Celema\\Log\\Tests\\": "tests/"
 		}
 	},
 	"require": {
@@ -31,7 +31,7 @@
 		"psr/log": "^3.0"
 	},
 	"require-dev": {
-		"celemas/dev": "^4.2"
+		"celema/dev": "^5.0"
 	},
 	"scripts": {
 		"test": [
@@ -43,7 +43,7 @@
 			"./vendor/bin/mago lint"
 		],
 		"docs:format": "npx prettier@3.6.2 --write --config ./docs/.prettierrc README.md CHANGELOG.md LICENSE.md docs/",
-		"docs:lint": "npx markdownlint-cli2@0.22.1 --config ./vendor/celemas/dev/config/markdownlint.jsonc README.md CHANGELOG.md LICENSE.md docs/",
+		"docs:lint": "npx markdownlint-cli2@0.22.1 --config ./vendor/celema/dev/config/markdownlint.jsonc README.md CHANGELOG.md LICENSE.md docs/",
 		"coverage:test": "php -d xdebug.mode=coverage ./vendor/bin/phpunit --testdox --path-coverage --colors=always",
 		"coverage:analyze": "./vendor/bin/coverlyzer .coverage/coverage.php",
 		"coverage": [

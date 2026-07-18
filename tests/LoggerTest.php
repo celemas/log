@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Log;
+namespace Celema\Log;
 
 function error_log(string $message, int $messageType = 0, ?string $destination = null): bool
 {
 	return Tests\ErrorLog::write($message, $messageType, $destination);
 }
 
-namespace Celemas\Log\Tests;
+namespace Celema\Log\Tests;
 
-use Celemas\Log\Formatter\PlainFormatter;
-use Celemas\Log\Formatter\TextFormatter;
-use Celemas\Log\Logger;
+use Celema\Log\Formatter\PlainFormatter;
+use Celema\Log\Formatter\TextFormatter;
+use Celema\Log\Logger;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\TestDox;
 use Psr\Log\InvalidArgumentException;

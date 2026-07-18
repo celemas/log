@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Log\Formatter;
+namespace Celema\Log\Formatter;
 
 use DateTimeInterface;
 use Stringable;

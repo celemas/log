@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Log;
+namespace Celema\Log;
 
-use Celemas\Log\Formatter\TextFormatter;
+use Celema\Log\Formatter\TextFormatter;
 use Override;
 use Psr\Log\InvalidArgumentException;
 use Psr\Log\LoggerInterface as PsrLogger;

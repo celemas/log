@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Log\Tests;
+namespace Celema\Log\Tests;
 
-use Celemas\Log\Formatter\PlainFormatter;
-use Celemas\Log\Formatter\TextFormatter;
+use Celema\Log\Formatter\PlainFormatter;
+use Celema\Log\Formatter\TextFormatter;
 use DateTime;
 use ErrorException;
 use PHPUnit\Framework\Attributes\TestDox;
