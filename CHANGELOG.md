@@ -2,7 +2,9 @@
 
 ## [Unreleased](https://codefloe.com/celema/log/compare/0.4.0...HEAD)
 
-No notable changes since the last release.
+### Fixed
+
+- `TextFormatter` now writes the chain of previous exceptions after an exception, each on a `Caused by:` line with its own traceback, so the original cause of a rethrown error is no longer lost.
 
 ## [0.4.0](https://codefloe.com/celema/log/src/tag/0.4.0) (2026-07-18)
 

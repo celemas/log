@@ -39,24 +39,34 @@ trait PreparesValue
 		return '[Array ' . ($encoded !== false ? $encoded : '...') . ']';
 	}
 
+	/**
+	 * The exception, then each previous exception it wraps, so the original
+	 * cause of a rethrown error stays in the log.
+	 */
 	private function getExceptionMessage(
 		Throwable $exception,
 		bool $includeTraceback,
 		string $tracebackIndent,
 	): string {
-		$message = $exception::class . ': ' . $exception->getMessage();
+		$parts = [];
 
-		if ($includeTraceback) {
-			$trace = $exception->getTraceAsString();
+		for ($current = $exception; $current !== null; $current = $current->getPrevious()) {
+			$part = $current::class . ': ' . $current->getMessage();
 
-			if ($tracebackIndent) {
-				// Indent each frame: split on '#', rejoin with indent+'#'
-				$trace = implode($tracebackIndent . '#', explode('#', $trace));
+			if ($includeTraceback) {
+				$trace = $current->getTraceAsString();
+
+				if ($tracebackIndent) {
+					// Indent each frame: split on '#', rejoin with indent+'#'
+					$trace = implode($tracebackIndent . '#', explode('#', $trace));
+				}
+
+				$part .= "\n" . $trace;
 			}
 
-			$message .= "\n" . $trace;
+			$parts[] = $part;
 		}
 
-		return $message;
+		return implode("\n" . $tracebackIndent . 'Caused by: ', $parts);
 	}
 }

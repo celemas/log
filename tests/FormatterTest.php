@@ -8,8 +8,10 @@ use Celema\Log\Formatter\PlainFormatter;
 use Celema\Log\Formatter\TextFormatter;
 use DateTime;
 use ErrorException;
+use LogicException;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use stdClass;
 
 class FormatterTest extends TestCase
@@ -67,5 +69,30 @@ class FormatterTest extends TestCase
 		$this->assertStringContainsString('[exception] => ErrorException: The test exception', $output);
 		$this->assertStringNotContainsString('#0', $output);
 		$this->assertStringNotContainsString('FormatterTest->testTextFormatterWithoutTraceback', $output);
+	}
+
+	#[TestDox('TextFormatter includes previous exceptions after the exception')]
+	public function testTextFormatterIncludesPreviousExceptions(): void
+	{
+		$exception = new RuntimeException('Outer', previous: new LogicException('Root cause'));
+
+		$output = new TextFormatter()->format('Error', ['exception' => $exception]);
+
+		$this->assertMatchesRegularExpression(
+			'/\[exception\] => RuntimeException: Outer\n.*#0 .*\n {6}Caused by: LogicException: Root cause\n {6}#0 /s',
+			$output,
+		);
+	}
+
+	#[TestDox('TextFormatter includes previous exceptions without tracebacks')]
+	public function testTextFormatterIncludesPreviousExceptionsWithoutTraceback(): void
+	{
+		$exception = new RuntimeException('Outer', previous: new LogicException('Root cause'));
+
+		$output = new TextFormatter(includeTraceback: false)->format('Failed: {exception}', [
+			'exception' => $exception,
+		]);
+
+		$this->assertSame("Failed: RuntimeException: Outer\nCaused by: LogicException: Root cause", $output);
 	}
 }

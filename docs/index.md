@@ -68,7 +68,7 @@ A formatter receives the log message and PSR-3 context and returns the text that
 
 ### TextFormatter
 
-`TextFormatter` is the default. It interpolates matching `{key}` placeholders, appends unused context values, and includes exception tracebacks by default.
+`TextFormatter` is the default. It interpolates matching `{key}` placeholders, appends unused context values, and includes exception tracebacks by default. An exception is followed by the previous exceptions it wraps, each on a `Caused by:` line.
 
 ```php
 use Celema\Log\Formatter\TextFormatter;
