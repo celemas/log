@@ -19,10 +19,6 @@ final class TextFormatter implements Formatter
 	#[Override]
 	public function format(string $message, array $context = []): string
 	{
-		if ($context === []) {
-			return $message;
-		}
-
 		[$message, $context] = $this->interpolate($message, $context);
 
 		if ($context === []) {

@@ -26,7 +26,6 @@ trait PreparesValue
 			$value instanceof DateTimeInterface => $value->format('Y-m-d H:i:s T'),
 			is_object($value) => '[Instance of ' . $value::class . ']',
 			is_array($value) => $this->prepareArray($value),
-			is_null($value) => '[null]',
 			default => '[' . get_debug_type($value) . ']',
 		};
 	}
