@@ -25,6 +25,14 @@ class FormatterTest extends TestCase
 		$this->assertEquals('Message', $formatter->format('Message', ['test' => 'context']));
 	}
 
+	#[TestDox('TextFormatter interpolates placeholders after unused context keys')]
+	public function testTextFormatterInterpolatesAfterUnusedKeys(): void
+	{
+		$output = new TextFormatter()->format('Hello {name}', ['unused' => 1, 'name' => 'World']);
+
+		$this->assertSame("Hello World:\n  [unused] => 1", $output);
+	}
+
 	#[TestDox('TextFormatter interpolates placeholders and appends unused context')]
 	public function testTextFormatter(): void
 	{

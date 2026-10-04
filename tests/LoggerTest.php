@@ -51,6 +51,9 @@ class LoggerTest extends TestCase
 		$this->assertStringContainsString('] CRITICAL: Chris', $output);
 		$this->assertStringContainsString('] ALERT: Kelly', $output);
 		$this->assertStringContainsString('] EMERGENCY: Terry', $output);
+		$this->assertStringStartsWith('[', (string) $output);
+		$this->assertStringEndsWith('] EMERGENCY: Terry' . PHP_EOL, (string) $output);
+		$this->assertSame([], ErrorLog::messages());
 	}
 
 	#[TestDox('Accept PSR-3 log levels')]
@@ -86,7 +89,7 @@ class LoggerTest extends TestCase
 		$logger = new Logger();
 
 		$logger->debug("Scott\nTravis");
-		$logger->info('Steve');
+		$logger->info("Steve\r\nDiGiorgio");
 		$logger->warning('Chuck');
 		$logger->error('Bobby');
 		$logger->alert('Kelly');
@@ -95,6 +98,7 @@ class LoggerTest extends TestCase
 
 		$this->assertCount(5, $messages);
 		$this->assertStringContainsString('] DEBUG: Scott Travis', $messages[0]);
+		$this->assertStringContainsString('] INFO: Steve DiGiorgio', $messages[1]);
 		$this->assertStringNotContainsString("\r", implode('', $messages));
 		$this->assertStringNotContainsString("\n", implode('', $messages));
 	}
@@ -127,9 +131,9 @@ class LoggerTest extends TestCase
 
 	#[DataProvider('invalidLevels')]
 	#[TestDox('Fail with PSR-3 error on unknown log level')]
-	public function testLoggerWithWrongLogLevel(mixed $level): void
+	public function testLoggerWithWrongLogLevel(mixed $level, string $printed): void
 	{
-		$this->throws(InvalidArgumentException::class, 'Unknown log level');
+		$this->throws(InvalidArgumentException::class, "Unknown log level: {$printed}");
 
 		$logger = new Logger($this->logFile, level: LogLevel::ERROR);
 		$logger->log($level, 'never logged');
@@ -138,17 +142,27 @@ class LoggerTest extends TestCase
 	#[TestDox('Fail with PSR-3 error on unknown configured log level')]
 	public function testLoggerWithWrongMinimumLogLevel(): void
 	{
-		$this->throws(InvalidArgumentException::class, 'Unknown log level');
+		$this->throws(InvalidArgumentException::class, 'Unknown log level: invalid');
 
 		new Logger($this->logFile, level: 'invalid');
 	}
 
-	/** @return iterable<string, array{mixed}> */
+	/** @return iterable<string, array{mixed, string}> */
 	public static function invalidLevels(): iterable
 	{
-		yield 'integer' => [1313];
-		yield 'string' => ['invalid'];
-		yield 'null' => [null];
+		yield 'integer' => [1313, '1313'];
+		yield 'string' => ['invalid', 'invalid'];
+		yield 'stringable' => [
+			new class implements \Stringable {
+				public function __toString(): string
+				{
+					return 'stringable';
+				}
+			},
+			'stringable',
+		];
+		yield 'array' => [['debug'], 'array'];
+		yield 'null' => [null, 'null'];
 	}
 
 	#[TestDox('Format message with default TextFormatter')]
