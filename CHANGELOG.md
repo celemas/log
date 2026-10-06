@@ -1,6 +1,10 @@
 # Changelog
 
-## [Unreleased](https://codefloe.com/celema/log/compare/0.4.0...HEAD)
+## [Unreleased](https://codefloe.com/celema/log/compare/0.4.1...HEAD)
+
+No notable changes since the last release.
+
+## [0.4.1](https://codefloe.com/celema/log/src/tag/0.4.1) (2026-10-06)
 
 ### Fixed
 
